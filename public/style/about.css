@@ -1,0 +1,64 @@
+.about{
+	padding: 100px 50px;
+	display: flex;
+	justify-content: center;
+	background: url("../images/canvas.jpg");
+	background-position: center;
+	background-attachment: fixed;
+	min-height: 100vh;
+	margin: 110px 0 0 0;
+}
+
+
+.author-pic{
+	height: 450px;
+	width: 350px;
+	border: #333 solid 3px;
+}
+.author-pic img{
+	height: 100%;
+	width: 100%;
+}
+.author-description{
+	background: rgba(255, 255, 255, 0.9);
+	padding: 25px;
+	height: 450px;
+	width: 50%;
+	font-weight: 900;
+	text-align: center;
+}
+
+
+@media(max-width: 900px){
+	.author-description{
+		font-size: 15px;
+	}
+}
+@media(max-width: 767px){
+	.about{
+		flex-direction: column;
+	}
+	.author-pic{
+		height: 350px;
+		width: 300px;
+		margin: auto;
+	}
+	.author-description{
+		width: 300px;
+		height: auto;
+		margin: auto;
+		padding: 15px;
+	}
+}
+@media(max-width: 500px){
+	.about{
+		padding: 100px 0;
+	}
+	.author-pic{
+		height: 300px;
+		width: 250px;
+	}
+	.author-description{
+		width: 250px;
+	}
+}

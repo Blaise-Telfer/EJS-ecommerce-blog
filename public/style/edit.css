@@ -1,0 +1,37 @@
+.post-edit{
+	padding: 40px;
+	background: #f5f5f5;
+	min-height: 100vh;
+	margin: 110px 0 0 0;
+}
+
+#editor {
+  height: 375px;
+}
+
+.ql-showHtml:after {
+  content: "[source]";
+}
+
+.quill{
+	width: 75%;
+	margin: 15px auto;
+	border: #e3e3e3 solid 3px;
+}
+.ql-container{
+	min-height: 250px;
+	font-size: 20px;
+}
+.ql-toolbar{
+	padding: 15px;
+}
+.ql-editor{
+	font-size: 20px;
+}
+.product-form{
+	padding: 25px;
+}
+
+@media(max-width: 670px){
+	
+}

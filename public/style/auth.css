@@ -1,0 +1,81 @@
+/*login page*/
+.login-container{
+	min-height: 100vh;
+	margin: 115px 0 0 0;
+	text-align: center;
+	padding: 40px 0;
+	background: #f5f5f5;
+}
+.login-form{
+	margin: 50px auto;
+	background: #fff;
+	border: #e3e3e3 solid 2px;
+	padding: 20px;
+	width: 75%;
+	text-align: center;
+}
+.login-form input{
+	width: 75%;
+	height: 40px;
+	margin: auto;
+}
+
+/*register page*/
+.register-container{
+	min-height: 100vh;
+	margin: 115px 0 0 0;
+	text-align: center;
+	padding: 40px 0;
+	background: #f5f5f5;
+}
+.register-form{
+	margin: 50px auto;
+	background: #fff;
+	border: #e3e3e3 solid 2px;
+	padding: 20px;
+	width: 75%;
+	text-align: center;
+}
+.register-form input{
+	width: 75%;
+	height: 40px;
+	margin: auto;
+}
+
+
+
+#editor {
+  height: 375px;
+}
+
+.ql-showHtml:after {
+  content: "[source]";
+}
+
+
+
+
+/*admin panel*/
+.admin-panel{
+	margin: 115px 0 0 0;
+	padding: 40px;
+	background: #e5e5e5;
+}
+.quill{
+	width: 75%;
+	margin: 15px auto;
+	border: #e3e3e3 solid 3px;
+}
+.ql-container{
+	min-height: 250px;
+	font-size: 20px;
+}
+.ql-toolbar{
+	padding: 15px;
+}
+.ql-editor{
+	font-size: 20px;
+}
+.product-form{
+	padding: 25px;
+}
