@@ -14,18 +14,19 @@ sgMail.setApiKey("SG.ldxFDVu_SHaL9VmB8l3hlg.OJwPTfVY2FHFbgoiskUAjfyp4-y17RxGflUG
 
 
 router.get("/", (req, res) => {
-	Product.find(function (err, products){
-		if(err){
-			console.log(err)
-		} 
-		else{
-			res.render('index', { user: req.user, products: products });
-		}
-	});
+  Product.find(function (err, products){
+    if(err){
+	console.log(err)
+    }else{
+	res.render('index', { user: req.user, products: products });
+    }
+  });
 });
+
 router.get("/about", (req, res) => {
 	res.render('about');
 });
+
 router.get("/contact", (req, res) => {
 	Product.find(function (err, products){
 		if(err){
