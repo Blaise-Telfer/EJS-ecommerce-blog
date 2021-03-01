@@ -17,5 +17,3 @@ middlewareObj.isAdmin = function(req, res, next) {
 }
 
 module.exports = middlewareObj;
-
-
