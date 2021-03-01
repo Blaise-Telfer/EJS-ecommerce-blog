@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Victoria Telfer - Cart</title>
+        <!--Styling CDN-->
+		<link href="https://fonts.googleapis.com/css2?family=Castoro&family=Playfair+Display&display=swap" rel="stylesheet"> 
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/style/cart.css">
+    </head>
+    <body>
+		<%- include ("./partials/header") -%>
+		
+		<div class="shopping-cart">
+			<%- include ("./partials/messages") -%>
+			
+			<% if(products && totalQty > 0) { %>
+				
+				<% products.forEach(function(product) { %>
+					<div class="product-box">
+						<div class="product-img">
+							<img src="<%= product.item.imagePath %>">
+						</div>
+						<div class="cart-buttons">
+							<a href="/reduce/<%= product.item._id %>">-1</a>
+							<a href="/remove/<%= product.item._id %>">Remove</a>
+							<a href="/add/<%= product.item._id %>">+1</a>
+						</div>
+					</div>
+				<% }) %>
+				
+				<div class="price-box">
+					<strong>Quantity: <%= totalQty %> </strong>
+					</br>
+					<strong>Subtotal: <%= (totalPrice - 5).toFixed(2) %> </strong>
+					</br>
+					<strong>+$5.00 Shipping and Handling</strong>
+					</br>
+					<strong>Total: <%= totalPrice %> </strong>
+					
+					<form action="/pay/pay" method="post" target="_blank">
+						<button class="paypal-button">
+							<img src="./images/paypal.png">
+						</button>
+					</form>
+				</div>
+				
+			<% } else { %>
+				<div class="no-items">
+					<h2>No Items In Cart</h2>
+					<a href="/">Take a look at the available products</a>
+				</div>
+			<% } %>
+		</div>
+		
+		<%- include ("./partials/footer") -%>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

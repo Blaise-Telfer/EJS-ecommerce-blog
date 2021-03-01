@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Victoria Telfer - Edit</title>
+		<!--Styling CDN-->
+		<link href="https://fonts.googleapis.com/css2?family=Castoro&family=Playfair+Display&display=swap" rel="stylesheet"> 
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/style/edit.css">
+		<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+	</head>
+	<body>
+		<%- include ("./partials/header") -%>
+		
+		<div class="post-edit">
+			<%- include ("./partials/messages") -%>
+			
+			<form action="/blog/update/<%= post._id %>?_method=PUT" method="POST">
+				<div class="form-group">
+					<label for="title">Title</label>
+					<input id="title" class="form-control" type="text" name="post[title]" value="<%= post.title %>" required>
+				</div>
+				
+				<input name="post[body]" type="hidden">
+				<div id="quillEditor">
+					<%- post.body %>
+				</div>
+				
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary">Save Changes</button>
+				</div>
+			</form>
+		</div>
+		
+		<%- include ("./partials/footer") -%>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+		<script>
+			var editor = new Quill('#quillEditor', {
+			  modules: {
+				toolbar: [
+					['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+					['blockquote', 'code-block'],
+					['link', 'image'],
+					[{ 'header': 1 }, { 'header': 2 }],               // custom button values
+					[{ 'list': 'ordered'}, { 'list': 'bullet' }],
+					[{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+					[{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+					[{ 'direction': 'rtl' }],                         // text direction
+					[{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+					[{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+					[{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+					[{ 'font': [] }],
+					[{ 'align': [] }],
+					['clean'],
+					['showHtml']
+				]
+			  },
+			  placeholder: 'Write your post...',
+			  theme: 'snow'
+			});
+			
+			var form = document.querySelector('form');
+			form.onsubmit = function() {
+			  var text = editor.root.innerHTML;
+			  var body = document.querySelector('input[name="post[body]"]');
+			  body.value = text;
+			};
+			
+			var txtArea = document.createElement('textarea');
+			txtArea.style.cssText = "width: 100%;margin: 0px;background: rgb(29, 29, 29);box-sizing: border-box;color: rgb(204, 204, 204);font-size: 15px;outline: none;padding: 20px;line-height: 24px;font-family: Consolas, Menlo, Monaco, &quot;Courier New&quot;, monospace;position: absolute;top: 0;bottom: 0;border: none;display:none"
+
+			var htmlEditor = editor.addContainer('ql-custom')
+			htmlEditor.appendChild(txtArea)
+
+			var myEditor = document.querySelector('#quillEditor')
+			editor.on('text-change', (delta, oldDelta, source) => {
+			  var html = myEditor.children[0].innerHTML
+			  txtArea.value = html
+			})
+
+			var customButton = document.querySelector('.ql-showHtml');
+			customButton.addEventListener('click', function() {
+			  if (txtArea.style.display === '') {
+				var html = txtArea.value
+				self.editor.pasteHTML(html)
+			  }
+			  txtArea.style.display = txtArea.style.display === 'none' ? '' : 'none'
+			});
+		</script>
+	</body>
+</html>

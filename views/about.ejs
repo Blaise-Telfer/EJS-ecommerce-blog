@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Victoria Telfer - About</title>
+        <!--Styling CDN-->
+		<link href="https://fonts.googleapis.com/css2?family=Castoro&family=Playfair+Display&display=swap" rel="stylesheet"> 
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/style/about.css">
+    </head>
+    <body>
+		<%- include ("./partials/header") -%>
+		
+		<div class="about">
+			<%- include ("./partials/messages") -%>
+			
+			<div class="author-pic">
+				<img src="/images/author.jpg" >
+			</div>
+			<div class="author-description">
+				<p>Victoria Telfer is a children’s author and illustrator currently residing in Southern California 
+				with her husband and dog. Her passion for the written word consumes much of her life and it is her 
+				greatest hope to infuse children with the same passion bestowed to her by all the greats who came 
+				before. In between reading and writing, Victoria is also studying to become a Neurodiagnostic Technologist. 
+				Through her studies of anatomy and physiology she has developed a special appreciation for the magic 
+				and the mechanisms of the human body that she intends to share with children in future projects.
+				</p>
+			</div>
+		</div>
+		
+		<%- include ("./partials/footer") -%>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

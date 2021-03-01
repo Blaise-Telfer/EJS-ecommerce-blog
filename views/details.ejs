@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Victoria Telfer - Details</title>
+        <!--Styling CDN-->
+		<link href="https://fonts.googleapis.com/css2?family=Castoro&family=Playfair+Display&display=swap" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/style/details.css">
+    </head>
+    <body>
+		<%- include ("./partials/header") -%>
+		
+		<div class="details-container">
+			<%- include ("./partials/messages") -%>
+			
+			<div class="flex">
+				<div class="details-img">
+					<img src="<%= product.imagePath %>">
+				</div>
+				<div class="details-info">
+					<h2><%= product.title %></h2>
+					<p>$<%= product.price %></p>
+					<a href="/add-to-cart/<%=product._id%>" class="btn btn-primary">
+						Add to Cart
+					</a>
+				</div>
+			</div>
+			<div class="description-container">
+				<p> <%= product.description %> </p>
+			</div>
+			
+		</div>
+		
+		<%- include ("./partials/footer") -%>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

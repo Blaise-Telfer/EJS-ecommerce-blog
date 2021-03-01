@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Victoria Telfer - Contact</title>
+        <!--Styling CDN-->
+		<link href="https://fonts.googleapis.com/css2?family=Castoro&family=Playfair+Display&display=swap" rel="stylesheet"> 
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<script src="https://kit.fontawesome.com/7752e5f19c.js" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="/style/contact.css">
+    </head>
+    <body>
+		<%- include ("./partials/header") -%>
+		
+		<div class="contact-container">
+			<%- include ("./partials/messages") -%>
+			
+			<form action="/contact" class="contact-form" method="POST">
+				
+				<div class="social-media">
+					<i class="fas fa-envelope fa-3x"></i>
+					<a href="mailto:tori@victoriatelfer.com" target="_blank" rel="noopener noreferrer">
+						tori@victoriatelfer.com
+					</a>
+					<hr/>
+					<i class="fab fa-instagram fa-3x"></i>
+					<a href="https://www.instagram.com/victoriatelfer"  target="_blank">
+						@victoriatelfer
+					</a>
+					<hr/>
+					<i class="fab fa-facebook fa-3x"></i>
+					<a href="https://www.facebook.com/victoriatelferbooks"  target="_blank">
+						@victoriatelferbooks
+					</a>
+				</div>
+				
+				<hr/>
+				<h1 class="h3 mb-3 font-weight-normal">Join My Mailing List</h1>
+				
+				<input type="text" name="fName" class="form-control top" placeholder="First Name" required autofocus>
+				<input type="text" name="lName" class="form-control middle" placeholder="Last Name" required>
+				<input type="email" name="email" class="form-control bottom" placeholder="Email" required>
+				
+				<button class="btn btn-lg btn-primary btn-block" type="submit">Sign Me Up</button>
+			</form>
+		</div>
+		
+		<%- include ("./partials/footer") -%>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

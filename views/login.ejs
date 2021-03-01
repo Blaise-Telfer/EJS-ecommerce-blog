@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Victoria Telfer - Login</title>
+        <!--Styling CDN-->
+		<link href="https://fonts.googleapis.com/css2?family=Castoro&family=Playfair+Display&display=swap" rel="stylesheet"> 
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/style/auth.css">
+	</head>
+    <body>
+		<%- include ("./partials/header") -%>
+		
+		<div class="login-container">
+			<%- include ("./partials/messages") -%>
+			
+			<form class="login-form" action="/user/login" method="POST">
+				<div class="form-group">
+				  <label for="email">Email</label>
+				  <input
+					required
+					type="email"
+					id="email"
+					name="email"
+					class="form-control"
+					placeholder="Enter Email"
+				  />
+				</div>
+				<div class="form-group">
+				  <label for="password">Password</label>
+				  <input
+					required
+					type="password"
+					id="password"
+					name="password"
+					class="form-control"
+					placeholder="Enter Password"
+				  />
+				</div>
+				<button type="submit" class="btn btn-primary btn-block">Login</button>
+			</form>
+		</div>
+		
+		<%- include ("./partials/footer") -%>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </body>
+</html>

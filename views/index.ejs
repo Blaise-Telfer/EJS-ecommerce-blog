@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Victoria Telfer</title>
+        <!--Styling CDN-->
+		<link href="https://fonts.googleapis.com/css2?family=Castoro&family=Playfair+Display&display=swap" rel="stylesheet"> 
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/style/main.css">
+		<link rel="stylesheet" type="text/css" href="style/slick.css"/>
+		<link rel="stylesheet" type="text/css" href="style/slick-theme.css"/>
+    </head>
+    <body>
+	<%- include ("./partials/header") -%>
+	
+        <div class="header">
+				<% products.forEach(function(product) { %>
+				<%=console.log(product)%>
+				
+				<div class="product">
+					<div class="product-img">
+						<a href="/details/<%=product._id%>"> <img src="<%= product.imagePath %>"> </a>
+					</div>
+					<div class="product-info">
+						<h2><%= product.title %></h2>
+						<p>$<%= product.price %></p>
+						<a href="/details/<%=product._id%>" class="btn btn-success">Details</a>
+						</br>
+						<a href="/add-to-cart/<%=product._id%>" class="btn btn-primary">
+							Add to Cart
+						</a>
+						
+						<div class="">
+							<% if(user && user.isAdmin) { %>
+								<a class="btn btn-danger" data-toggle="collapse" href="#collapse-<%= product._id %>" role="button" aria-expanded="false">
+									Delete product
+								</a>
+								<div class="collapse" id="collapse-<%= product._id %>">
+									<div class="card card-body">
+										<p><span class="text-danger">WARNING</span>: This will delete the product. Are you sure?</p>
+										<form action="/product/<%= product._id %>?_method=DELETE" method="POST">
+											<button class="btn btn-danger">Yes</button>
+											<a class="btn btn-success" data-toggle="collapse" href="#collapse-<%= product._id %>" role="button" aria-expanded="false">
+												No
+											</a>
+										</form>
+									</div>
+								</div>
+							<% } %>
+						</div>
+					</div>
+				</div>
+				<% }); %>
+			
+        </div>
+		
+		<div class="header2">
+			<div class="people row">
+					<div class="example col-md">
+						<a href="/blog"><img src="/images/icon1.png"></a>
+						</br>
+						<a href="/blog">Blog</a>
+					</div>
+					<div class="example col-md">
+						<a href="/about"><img src="/images/icon2.png"></a>
+						</br>
+						<a href="/about">About</a>
+					</div>
+					<div class="example col-md">
+						<a href="/contact"><img src="/images/icon3.png"></a>
+						</br>
+						<a href="/contact">Contact</a>
+					</div>
+			</div>
+        </div>
+		
+		<div class="slider" id="slideshow">
+			<div class="slick">
+				<div><img src="images/1.jpg"/></div>
+				<div><img src="images/1a.png"/></div>
+				<div><img src="images/2.jpg"/></div>
+				<div><img src="images/2a.png"/></div>
+				<div><img src="images/3.jpg"/></div>
+				<div><img src="images/3a.png"/></div>
+				<div><img src="images/4.jpg"/></div>
+				<div><img src="images/4a.png"/></div>
+			</div>
+		</div>
+		
+		<div class="header3">
+            <div class="book-ad row">
+				<div class="description col-md">
+					<h2>About The Author</h2>
+					<a href="/about" class="btn">Learn More</a>
+				</div>
+				<div class="book-cover col-md">
+					<img src="/images/author.jpg" >
+				</div>
+			</div>
+			
+        </div>
+		
+		<%- include ("./partials/footer") -%>
+		
+		<script type="text/javascript" src="slick.min.js"></script>
+		<script>
+		$(document).ready(function(){
+		  $('#slideshow .slick').slick({
+			autoplay: true,
+			autoplaySpeed: 3000,
+			speed: 3000,
+			dots: true,
+			prevArrow: $('.prev'),
+			nextArrow: $('.next')
+		  });
+		});
+		</script>
+    </body>	
+</html>

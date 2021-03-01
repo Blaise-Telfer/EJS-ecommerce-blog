@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Victoria Telfer - Blog</title>
+        <!--Styling CDN-->
+		<link href="https://fonts.googleapis.com/css2?family=Castoro&family=Playfair+Display&display=swap" rel="stylesheet"> 
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+		<link rel="stylesheet" href="/style/blog.css">
+    </head>
+    <body>
+		<%- include ("./partials/header") -%>
+		
+		<div class="blog-page">
+			<%- include ("./partials/messages") -%>
+			
+			<h2 class="page-title">Forever Was The Sea</h2>
+			
+			<div class="card-container">
+			<% posts.reverse().forEach(function(post) { %>
+				<div class="preview-box">
+					<div class="post-preview">
+						<a href="/blog/blogPost/<%= post._id %>" class="post-title"> <%= post.title %> </a> 
+						- <%= moment(post.createdAt).calendar() %>
+						<hr/>
+						<div class="text-preview"><%- post.body %></div>
+						<a href="/blog/blogPost/<%= post._id %>"> Read More... </a>
+					</div>
+				</div>
+			<% }); %>
+			</div>
+			
+		</div>
+		
+		<%- include ("./partials/footer") -%>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		
+    </body>
+</html>
+<div class=""></div>
